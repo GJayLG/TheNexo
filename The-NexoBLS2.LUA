@@ -5,6 +5,7 @@ local AutoClick = false
 local AutoSell = false
 local AutoRebirth = false 
 local walk = false
+local AntiAFK = false
 local w = library:CreateWindow("Big Lifting 2") 
 local g = library:CreateWindow("About")
 local b = w:CreateFolder("Auto Farm") 
@@ -74,6 +75,11 @@ k:Toggle("WalkSpeed",function(bool)
     print('WalkSpeed '..tostring(shared.toggle))
     walk = bool
 end)
+k:Toggle("AntiAFK",function(bool)
+    shared.toggle = bool
+    print('AntiAFK '..tostring(shared.toggle))
+    AntiAFK = bool
+end)
 
 
 while wait() do
@@ -98,6 +104,15 @@ while wait() do
 				Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
 				Humanoid.WalkSpeed = _G.WS;
 				end)
-				Humanoid.WalkSpeed = _G.WS;
+                Humanoid.WalkSpeed = _G.WS;
+                
+    if AntiAFK == true then
+        local vu = game:GetService("VirtualUser")
+        game:GetService("Players").LocalPlayer.Idled:connect(function()
+        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        wait(1)
+        vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        end)
         end
+end
 end
