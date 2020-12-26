@@ -12,6 +12,9 @@ local g = library:CreateWindow("About")
 local b = w:CreateFolder("Auto Farm")
 local k = w:CreateFolder("Misc")
 local q = g:CreateFolder("Developers")
+local plr = game.Players
+local you = plr.LocalPlayer
+local char = you.Character
 
 b:Label("AUTO FARM",{
     TextSize = 25;
@@ -90,13 +93,13 @@ end)
 
 while wait() do
     if AutoClick == true then
-        local tool = game.Workspace.FROSTSVIM:FindFirstChildOfClass("Tool") -- Write your nickname behind the place (FROSTSVIM)
-        if game.Workspace.FROSTSVIM:FindFirstChildOfClass("Tool") then -- Write your nickname behind the place (FROSTSVIM)
-        game.Workspace.FROSTSVIM:FindFirstChildOfClass("Tool"):Activate() -- Write your nickname behind the place (FROSTSVIM)
+        local tool = char:FindFirstChildOfClass("Tool") -- Write your nickname behind the place (FROSTSVIM)
+        if char:FindFirstChildOfClass("Tool") then -- Write your nickname behind the place (FROSTSVIM)
+        char:FindFirstChildOfClass("Tool"):Activate() -- Write your nickname behind the place (FROSTSVIM)
         end
         end
     if AutoSell == true then
-        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local pl = char.HumanoidRootPart
         local location = CFrame.new(433,758,1529)
         pl.CFrame = location
     end
@@ -413,7 +416,7 @@ while wait() do
     end
     if walk == true then
     _G.WS = "150";
-			local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+			local Humanoid = char.Humanoid;
 			Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
 			Humanoid.WalkSpeed = _G.WS;
 			end)
@@ -421,7 +424,7 @@ while wait() do
     end
    if AntiAFK == true then
         local vu = game:GetService("VirtualUser")
-        game:GetService("Players").LocalPlayer.Idled:connect(function()
+        you.Idled:connect(function()
         vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
         wait(1)
         vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
