@@ -1,6 +1,15 @@
 {
     "Lua.diagnostics.disable": [
         "redefined-local",
-        "unknown-symbol"
-    ]
+        "unknown-symbol",
+        "empty-block",
+        "empty-block",
+        "empty-block"
+    ],
+    "extensions.ignoreRecommendations": true,
+    "files.autoSave": "off",
+    "typescript.tsc.autoDetect": "off",
+    "npm.autoDetect": "off",
+    "debug.allowBreakpointsEverywhere": true,
+    "html.autoClosingTags": false
 }
