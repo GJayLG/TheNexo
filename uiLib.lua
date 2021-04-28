@@ -461,7 +461,7 @@ function nexoslider(name, win,color, min, max, callback)
     end
 end
 
-function nexocallinfo()
+function nexocallinfo(name)
     if game.Players.LocalPlayer.PlayerGui:FindFirstChild('InfoUI') then
         game.Players.LocalPlayer.PlayerGui.InfoUI:Destroy()
     end
@@ -558,7 +558,7 @@ function nexocallinfo()
     Game.Position = UDim2.new(0.325806469, 0, 0.0806970596, 0)
     Game.Size = UDim2.new(0, 63, 0, 19)
     Game.Font = Enum.Font.SourceSansBold
-    Game.Text = 'BuildABoat'
+    Game.Text = name
     Game.TextColor3 = Color3.fromRGB(255, 255, 255)
     Game.TextSize = 14.000
     Game.TextWrapped = true
