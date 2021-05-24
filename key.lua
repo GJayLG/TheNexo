@@ -1,1 +1,1 @@
-local key = '123'
+getgenv().key = 'lol'
